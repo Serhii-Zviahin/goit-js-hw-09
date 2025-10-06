@@ -19,6 +19,19 @@
       </h1>
       <load src="./partials/back-link.html" />
     </div>
+    <form class="feedback-form" autocomplete="off">
+      <label>
+        Email
+        <input type="email" name="email" autofocus placeholder="Enter your mail" /><span class="error-message">Please
+          enter a valid email</span>
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="8"></textarea>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+
   </main>
 
   <script type="module" src="./js/2-form.js"></script>

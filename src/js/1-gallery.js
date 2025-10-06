@@ -72,6 +72,7 @@ const imagesStr = images.map(item => `
                 class="gallery-image"
                 src="${item.preview}"
                 alt="${item.description}"
+                title="${item.description}"
             />
         </a>
     </li>
@@ -81,4 +82,4 @@ const gallery = document.querySelector('.gallery');
 gallery.insertAdjacentHTML('beforeend', imagesStr);
 
 
-new SimpleLightbox('.gallery-link', { /* options */ });
+new SimpleLightbox('.gallery-link', { captionsData: "title", captionPosition: "bottom", captionDelay: 250 });
