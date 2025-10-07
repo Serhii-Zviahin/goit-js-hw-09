@@ -35,18 +35,10 @@ function handlerSubmit(event) {
     if (!userEmail.value.trim() || !textarea.value.trim()) {
         return alert ('Fill please all fields');
     }
-    let formData = {
-        email: '',
-        message: '',
-    }
-    formData.email = userEmail.value.trim();
-    formData.message = textarea.value.trim();
     console.log(formData);
     event.currentTarget.reset();
     localStorage.removeItem(Storage_Key);
     
-    formData = {
-    email: '',
-    message: '',
-    }
+    formData.email = '';
+    formData.message = '';
 }
