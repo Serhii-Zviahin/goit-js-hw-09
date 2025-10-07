@@ -9,8 +9,7 @@ const userEmail = form.querySelector('input');
 const textarea = form.querySelector('textarea');
 populateForm();
 
-userEmail.addEventListener('input', saveData);
-textarea.addEventListener('input', saveData);
+form.addEventListener('input', saveData);
 
 function saveData() {
     formData.email = userEmail.value.trim();
@@ -19,27 +18,35 @@ function saveData() {
 } ;
 
 function populateForm() {
-    const restoreForm = JSON.parse(localStorage.getItem(Storage_Key));
-    if (!restoreForm) {
-        return;
-    }
-    if (restoreForm.email) {
+    const restoreForm = JSON.parse(localStorage.getItem(Storage_Key));   
+    if (restoreForm) {
         userEmail.value = restoreForm.email || '';
-    } if (restoreForm.message) {
         textarea.value = restoreForm.message || '';
+        formData.email = restoreForm.email || '';
+        formData.message = restoreForm.message || '';
     }
 }
 
 form.addEventListener('submit', handlerSubmit);
+
 function handlerSubmit(event) {
     event.preventDefault();
-    const restoreForm = JSON.parse(localStorage.getItem(Storage_Key));
-    if (!restoreForm.email) {
+
+    if (!userEmail.value.trim() || !textarea.value.trim()) {
         return alert ('Fill please all fields');
     }
-    if (!restoreForm.message) {
-        return alert ('Fill please all fields');
+    let formData = {
+        email: '',
+        message: '',
     }
+    formData.email = userEmail.value.trim();
+    formData.message = textarea.value.trim();
+    console.log(formData);
     event.currentTarget.reset();
     localStorage.removeItem(Storage_Key);
+    
+    formData = {
+    email: '',
+    message: '',
+    }
 }

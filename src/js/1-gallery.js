@@ -82,4 +82,4 @@ const gallery = document.querySelector('.gallery');
 gallery.insertAdjacentHTML('beforeend', imagesStr);
 
 
-new SimpleLightbox('.gallery-link', { captionsData: "title", captionPosition: "bottom", captionDelay: 250 });
+new SimpleLightbox('.gallery-link', { captionsData: "alt", captionPosition: "bottom", captionDelay: 250 });
